@@ -11,7 +11,7 @@
  Target Server Version : 50723
  File Encoding         : 65001
 
- Date: 16/03/2020 14:52:26
+ Date: 17/03/2020 23:51:35
 */
 
 SET NAMES utf8mb4;
@@ -151,6 +151,25 @@ INSERT INTO `biografi` VALUES (15, 2, 'Hj. Mandra', '<p>Lorem ipsum dolor sit, a
 COMMIT;
 
 -- ----------------------------
+-- Table structure for cabang
+-- ----------------------------
+DROP TABLE IF EXISTS `cabang`;
+CREATE TABLE `cabang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cabang
+-- ----------------------------
+BEGIN;
+INSERT INTO `cabang` VALUES (1, 'Lomba Horse Jumping');
+INSERT INTO `cabang` VALUES (2, 'Lomba Balap Cepat');
+INSERT INTO `cabang` VALUES (3, 'Lomba Kuda Lari');
+COMMIT;
+
+-- ----------------------------
 -- Table structure for client
 -- ----------------------------
 DROP TABLE IF EXISTS `client`;
@@ -253,20 +272,25 @@ DROP TABLE IF EXISTS `hasil_pertandingan`;
 CREATE TABLE `hasil_pertandingan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no_urut` int(3) DEFAULT NULL,
-  `nama_cabang` varchar(50) DEFAULT NULL,
+  `cabang_id` int(11) DEFAULT NULL,
   `nama_atlit` varchar(40) DEFAULT NULL,
   `nama_kuda` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of hasil_pertandingan
 -- ----------------------------
 BEGIN;
-INSERT INTO `hasil_pertandingan` VALUES (1, 1, 'Sea Games', 'Indra Tasik', 'Asep');
-INSERT INTO `hasil_pertandingan` VALUES (2, 2, 'Sea Games', 'Rahmat', 'Junaidi');
-INSERT INTO `hasil_pertandingan` VALUES (3, 3, 'Sea Games 1', 'Mandra 1', 'Kipl 1');
-INSERT INTO `hasil_pertandingan` VALUES (6, 5, 'Cabang Archery', 'Tukimin', 'Marjuki');
+INSERT INTO `hasil_pertandingan` VALUES (7, 1, 1, 'Brenda', 'Brenda');
+INSERT INTO `hasil_pertandingan` VALUES (8, 2, 1, 'Indra', 'Indra');
+INSERT INTO `hasil_pertandingan` VALUES (9, 3, 1, 'Manda', 'Manda');
+INSERT INTO `hasil_pertandingan` VALUES (10, 1, 2, 'Supardi', 'Supardi');
+INSERT INTO `hasil_pertandingan` VALUES (11, 2, 2, 'Yayan', 'Yayan');
+INSERT INTO `hasil_pertandingan` VALUES (12, 3, 2, 'Indah', 'Indah');
+INSERT INTO `hasil_pertandingan` VALUES (13, 1, 3, 'Mamat', 'Sri');
+INSERT INTO `hasil_pertandingan` VALUES (14, 2, 3, 'Manasd', 'adad');
+INSERT INTO `hasil_pertandingan` VALUES (15, 3, 3, 'dd', 'sda');
 COMMIT;
 
 -- ----------------------------
@@ -465,7 +489,7 @@ CREATE TABLE `kunjungan` (
   `waktu` datetime NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_kunjungan`)
-) ENGINE=MyISAM AUTO_INCREMENT=1045 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1077 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of kunjungan
@@ -1515,6 +1539,38 @@ INSERT INTO `kunjungan` VALUES (1041, 'http://localhost:8888/compro/asosiasi', '
 INSERT INTO `kunjungan` VALUES (1042, 'http://localhost:8888/compro/asosiasi', '::1', '2020-03-16', '2020-03-16 14:51:51', '2020-03-16 14:51:51');
 INSERT INTO `kunjungan` VALUES (1043, 'http://localhost:8888/compro/asosiasi/read/2', '::1', '2020-03-16', '2020-03-16 14:51:57', '2020-03-16 14:51:57');
 INSERT INTO `kunjungan` VALUES (1044, 'http://localhost:8888/compro/asosiasi', '::1', '2020-03-16', '2020-03-16 14:52:02', '2020-03-16 14:52:02');
+INSERT INTO `kunjungan` VALUES (1045, 'http://localhost:8888/compro/asosiasi', '::1', '2020-03-16', '2020-03-16 14:54:53', '2020-03-16 14:54:53');
+INSERT INTO `kunjungan` VALUES (1046, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 08:31:26', '2020-03-17 08:31:26');
+INSERT INTO `kunjungan` VALUES (1047, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 08:31:26', '2020-03-17 08:31:26');
+INSERT INTO `kunjungan` VALUES (1048, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:09:11', '2020-03-17 22:09:11');
+INSERT INTO `kunjungan` VALUES (1049, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:35:37', '2020-03-17 22:35:37');
+INSERT INTO `kunjungan` VALUES (1050, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:50:06', '2020-03-17 22:50:06');
+INSERT INTO `kunjungan` VALUES (1051, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:50:55', '2020-03-17 22:50:55');
+INSERT INTO `kunjungan` VALUES (1052, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:51:36', '2020-03-17 22:51:36');
+INSERT INTO `kunjungan` VALUES (1053, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:51:49', '2020-03-17 22:51:49');
+INSERT INTO `kunjungan` VALUES (1054, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:52:40', '2020-03-17 22:52:40');
+INSERT INTO `kunjungan` VALUES (1055, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:53:00', '2020-03-17 22:53:00');
+INSERT INTO `kunjungan` VALUES (1056, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 22:54:11', '2020-03-17 22:54:11');
+INSERT INTO `kunjungan` VALUES (1057, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:04:25', '2020-03-17 23:04:25');
+INSERT INTO `kunjungan` VALUES (1058, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:07:48', '2020-03-17 23:07:48');
+INSERT INTO `kunjungan` VALUES (1059, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:08:02', '2020-03-17 23:08:02');
+INSERT INTO `kunjungan` VALUES (1060, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:09:17', '2020-03-17 23:09:17');
+INSERT INTO `kunjungan` VALUES (1061, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:10:39', '2020-03-17 23:10:39');
+INSERT INTO `kunjungan` VALUES (1062, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:11:20', '2020-03-17 23:11:20');
+INSERT INTO `kunjungan` VALUES (1063, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:11:35', '2020-03-17 23:11:35');
+INSERT INTO `kunjungan` VALUES (1064, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:11:45', '2020-03-17 23:11:45');
+INSERT INTO `kunjungan` VALUES (1065, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:11:57', '2020-03-17 23:11:57');
+INSERT INTO `kunjungan` VALUES (1066, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:12:22', '2020-03-17 23:12:22');
+INSERT INTO `kunjungan` VALUES (1067, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:14:22', '2020-03-17 23:14:22');
+INSERT INTO `kunjungan` VALUES (1068, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:14:55', '2020-03-17 23:14:55');
+INSERT INTO `kunjungan` VALUES (1069, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:15:52', '2020-03-17 23:15:52');
+INSERT INTO `kunjungan` VALUES (1070, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:16:02', '2020-03-17 23:16:02');
+INSERT INTO `kunjungan` VALUES (1071, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:38:41', '2020-03-17 23:38:41');
+INSERT INTO `kunjungan` VALUES (1072, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:38:53', '2020-03-17 23:38:53');
+INSERT INTO `kunjungan` VALUES (1073, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:39:05', '2020-03-17 23:39:05');
+INSERT INTO `kunjungan` VALUES (1074, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:39:42', '2020-03-17 23:39:42');
+INSERT INTO `kunjungan` VALUES (1075, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:40:22', '2020-03-17 23:40:22');
+INSERT INTO `kunjungan` VALUES (1076, 'http://localhost:8888/compro/index.php', '::1', '2020-03-17', '2020-03-17 23:45:03', '2020-03-17 23:45:03');
 COMMIT;
 
 -- ----------------------------
@@ -4125,6 +4181,99 @@ INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhos
 INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/biografi/tambah', '', '2020-03-16 14:50:32');
 INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/jabatan', '', '2020-03-16 14:50:35');
 INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-16 14:50:39');
+INSERT INTO `user_log` VALUES (0, '::1', 0, '-', '', 'http://localhost:8888/compro/admin/biografi', '', '2020-03-17 22:16:48');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/biografi', '', '2020-03-17 22:17:06');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:18:21');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:18:21');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang', '', '2020-03-17 22:19:16');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang', '', '2020-03-17 22:20:02');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang/tambah', '', '2020-03-17 22:20:06');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang/tambah', '', '2020-03-17 22:20:21');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang', '', '2020-03-17 22:20:22');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang/edit/3', '', '2020-03-17 22:20:26');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang/edit/3', '', '2020-03-17 22:20:29');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang', '', '2020-03-17 22:20:29');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang/delete/3', '', '2020-03-17 22:20:33');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang', '', '2020-03-17 22:20:34');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:22:15');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:22:15');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:22:58');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:23:01');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:24:53');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:25:09');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:25:21');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:25:28');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:25:38');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:25:38');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:26:10');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:26:11');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:26:17');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:26:17');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:26:20');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:26:27');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:26:27');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:26:30');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:26:33');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:27:06');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:09');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:16');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:27:17');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:20');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:29');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:27:29');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:34');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:44');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:27:44');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:48');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 22:27:56');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:27:57');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:28:02');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:28:07');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:28:07');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:28:29');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:28:36');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:29:20');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:31:29');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:32:32');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:32:49');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:32:56');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:33:18');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:34:19');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:34:27');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:34:38');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:34:42');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:34:46');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:34:49');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:34:49');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/9', '', '2020-03-17 22:34:52');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:34:54');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:34:56');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/12', '', '2020-03-17 22:34:58');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 22:34:58');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:06:31');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:06:49');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:07:00');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:07:03');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:07:05');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:07:14');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:07:17');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang', '', '2020-03-17 23:07:21');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang/tambah', '', '2020-03-17 23:07:24');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang/tambah', '', '2020-03-17 23:07:32');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/cabang', '', '2020-03-17 23:07:33');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:07:36');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:07:45');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:07:45');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:09:52');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:10:01');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:10:04');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:10:04');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/14', '', '2020-03-17 23:10:18');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/edit/14', '', '2020-03-17 23:10:23');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:10:23');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:10:26');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan/tambah', '', '2020-03-17 23:10:33');
+INSERT INTO `user_log` VALUES (0, '::1', 1, 'javawebmedia', '', 'http://localhost:8888/compro/admin/hasil_pertandingan', '', '2020-03-17 23:10:33');
 COMMIT;
 
 -- ----------------------------
