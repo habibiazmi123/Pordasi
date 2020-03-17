@@ -9,6 +9,7 @@ class Hasil_pertandingan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('hasil_pertandingan_model');
+        $this->load->model('cabang_model');
         $this->log_user->add_log();
         // Tambahkan proteksi halaman
         $url_pengalihan = str_replace('index.php/', '', current_url());
@@ -50,6 +51,7 @@ class Hasil_pertandingan extends CI_Controller
     // Tambah
     public function tambah()
     {
+        $cabang = $this->cabang_model->listing();
         // Validasi
         $validasi     = $this->form_validation;
 
@@ -88,6 +90,7 @@ class Hasil_pertandingan extends CI_Controller
 
             $data = array(
                 'title'        => 'Tambah Hasil Pertandingan',
+                'cabang' => $cabang,
                 'isi'        => 'admin/hasil_pertandingan/tambah'
             );
             $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -97,7 +100,7 @@ class Hasil_pertandingan extends CI_Controller
 
             $data = array(
                 'no_urut'        => $inp->post('no_urut'),
-                'nama_cabang'        => $inp->post('nama_cabang'),
+                'cabang_id'        => $inp->post('nama_cabang'),
                 'nama_atlit'            => $inp->post('nama_atlit'),
                 'nama_kuda'        => $inp->post('nama_kuda')
             );
@@ -112,6 +115,7 @@ class Hasil_pertandingan extends CI_Controller
     // Edit
     public function edit($id)
     {
+        $cabang = $this->cabang_model->listing();
         $hasil_pertandingan = $this->hasil_pertandingan_model->detail($id);
 
         // Validasi
@@ -153,6 +157,7 @@ class Hasil_pertandingan extends CI_Controller
             $data = array(
                 'title'        => 'Ubah Hasil Pertandingan',
                 'hasil_pertandingan'        => $hasil_pertandingan,
+                'cabang' => $cabang,
                 'isi'        => 'admin/hasil_pertandingan/edit'
             );
             $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -163,7 +168,7 @@ class Hasil_pertandingan extends CI_Controller
             $data = array(
                 'id'             => $id,
                 'no_urut'        => $inp->post('no_urut'),
-                'nama_cabang'    => $inp->post('nama_cabang'),
+                'cabang_id'    => $inp->post('nama_cabang'),
                 'nama_atlit'     => $inp->post('nama_atlit'),
                 'nama_kuda'      => $inp->post('nama_kuda')
             );
@@ -176,6 +181,7 @@ class Hasil_pertandingan extends CI_Controller
         $data = array(
             'title'              => 'Edit Galeri',
             'hasil_pertandingan'        => $hasil_pertandingan,
+            'cabang' => $cabang,
             'isi'                => 'admin/hasil_pertandingan/edit'
         );
         $this->load->view('admin/layout/wrapper', $data, FALSE);

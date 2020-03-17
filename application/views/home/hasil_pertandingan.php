@@ -7,7 +7,11 @@
             <div class="upcoming-events">
                 <div class="section-header">
                     <h2>Hasil Pertandingan</h2>
-                    <span>Lomba Horse Jumping</span>
+                    <!-- <div class="hasil-pertandingan__slick__for"> -->
+                    <?php foreach ($cabang as $value) { ?>
+                        <!-- <div><?php echo $value->nama ?></div> -->
+                    <?php } ?>
+                    <!-- </div> -->
                 </div>
 
                 <div class="hasil-pertandingan__slick">
@@ -16,12 +20,17 @@
                             <div class="our-services-items">
                                 <i class=" fa-5x" style="color:#337ab7; margin-bottom: 20px;"></i>
                                 <div class="our-services-content">
-                                    <h4>Juara <?php echo $value->no_urut ?></h4>
+                                    <div>
+                                        <h4>Juara <?php echo $value->no_urut ?></h4>
+                                    </div>
                                     <div class="nama-perserta__text">
-                                    <?php echo $value->nama_atlit ?>
+                                        <?php echo $value->nama_atlit ?>
                                     </div>
                                     <div class="name-kuda__text">
-                                    <?php echo $value->nama_kuda ?>
+                                        <?php echo $value->nama_kuda ?>
+                                    </div>
+                                    <div class="name-kuda__text">
+                                        <?php echo $value->nama_cabang ?>
                                     </div>
                                 </div>
                                 <!-- .our-services-content -->

@@ -203,14 +203,27 @@
           </ul>
         </li>
 
-        <li class="nav-item">
-          <a href="<?php echo base_url('admin/hasil_pertandingan') ?>" class="nav-link">
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
             <i class="nav-icon fa fa-star"></i>
-            <p>
-              Hasil Pertandingan
-            </p>
+            <p>Pertandingan <i class="right fa fa-angle-left"></i></p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item"><a href="<?php echo base_url('admin/hasil_pertandingan') ?>" class="nav-link"><i class="fa fa-table nav-icon"></i>
+                <p>Hasil Pertandingan</p>
+              </a>
+            </li>
+            <li class="nav-item"><a href="<?php echo base_url('admin/hasil_pertandingan/tambah') ?>" class="nav-link"><i class="fa fa-plus nav-icon"></i>
+                <p>Tambah Hasil Pertandingan</p>
+              </a>
+            </li>
+            <li class="nav-item"><a href="<?php echo base_url('admin/cabang') ?>" class="nav-link"><i class="fa fa-tags nav-icon"></i>
+                <p>Cabang</p>
+              </a>
+            </li>
+          </ul>
         </li>
+
 
         <?php if ($this->session->userdata('akses_level') == "Admin") { ?>
           <!-- MENU USER -->

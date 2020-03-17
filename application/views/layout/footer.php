@@ -58,15 +58,15 @@ $site = $this->konfigurasi_model->listing();
     border: 1px solid #f0f0f0;
     margin: 10px;
   }
-  
-  .slick-prev{
+
+  .slick-prev {
     left: -55px;
     width: 50px;
     height: 50px;
     background: #0099cc;
   }
 
-  .slick-prev:hover{
+  .slick-prev:hover {
     background: #0099cc;
   }
 
@@ -76,7 +76,7 @@ $site = $this->konfigurasi_model->listing();
     content: "\f104";
   }
 
-  .slick-next{
+  .slick-next {
     right: -55px;
     width: 50px;
     height: 50px;
@@ -89,11 +89,9 @@ $site = $this->konfigurasi_model->listing();
     content: "\f105";
   }
 
-  .slick-next:hover{
+  .slick-next:hover {
     background: #0099cc;
   }
-  
-
 </style>
 <?php
 $site           = $this->konfigurasi_model->listing();
@@ -247,10 +245,21 @@ $nav_profil     = $this->nav_model->nav_profil();
     //Initialize Select2 Elements
     $('.select2').select2()
 
+    // $('.hasil-pertandingan__slick__for').slick({
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   arrows: false,
+    //   fade: true,
+    //   asNavFor: '.hasil-pertandingan__slick'
+    // });
+
     $('.hasil-pertandingan__slick').slick({
-      infinite: true,
+      infinite: false,
+      // asNavFor: '.hasil-pertandingan__slick__for',
       slidesToShow: 3,
-      slidesToScroll: 3
+      slidesToScroll: 3,
+      dots: true,
+      focusOnSelect: true
     });
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.

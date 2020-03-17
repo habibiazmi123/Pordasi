@@ -1,9 +1,9 @@
 <?php
-echo form_open(base_url('admin/hasil_pertandingan/proses'));
+echo form_open(base_url('admin/cabang/proses'));
 ?>
 <p class="btn-group">
-    <a href="<?php echo base_url('admin/hasil_pertandingan/tambah') ?>" class="btn btn-success btn-lg">
-        <i class="fa fa-plus"></i> Tambah hasil_pertandingan</a>
+    <a href="<?php echo base_url('admin/cabang/tambah') ?>" class="btn btn-success btn-lg">
+        <i class="fa fa-plus"></i> Tambah Cabang</a>
 
     <button class="btn btn-danger" type="submit" name="hapus" onClick="check();">
         <i class="fa fa-trash-o"></i> Hapus
@@ -23,17 +23,14 @@ echo form_open(base_url('admin/hasil_pertandingan/proses'));
                         </button>
                     </div>
                 </th>
-                <th>Peringkat</th>
                 <th>Cabang</th>
-                <th>Nama Atlit</th>
-                <th>Nama Kuda</th>
                 <th width="15%">Action</th>
             </tr>
         </thead>
         <tbody>
 
             <?php $i = 1;
-            foreach ($hasil_pertandingan as $result) { ?>
+            foreach ($cabang as $result) { ?>
 
                 <tr class="odd gradeX">
                     <td>
@@ -44,18 +41,13 @@ echo form_open(base_url('admin/hasil_pertandingan/proses'));
                             </div>
                     </td>
                     <td>
-                        <?php echo $result->no_urut ?>
+                        <?php echo $result->nama ?>
                     </td>
-                    <td><?php echo $result->nama_cabang ?></td>
-                    <td><?php echo $result->nama_atlit ?></td>
-                    <td><?php echo $result->nama_kuda ?></td>
                     <td>
                         <div class="btn-group">
-                            <!-- <a href="<?php echo base_url('hasil_pertandingan/read/' . $result->id) ?>" class="btn btn-success btn-xs" target="_blank"><i class="fa fa-eye"></i></a> -->
+                            <a href="<?php echo base_url('admin/cabang/edit/' . $result->id) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
 
-                            <a href="<?php echo base_url('admin/hasil_pertandingan/edit/' . $result->id) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
-
-                            <a href="<?php echo base_url('admin/hasil_pertandingan/delete/' . $result->id) ?>" class="btn btn-danger btn-xs " onclick="confirmation(event)"><i class="fa fa-trash-o"></i></a>
+                            <a href="<?php echo base_url('admin/cabang/delete/' . $result->id) ?>" class="btn btn-danger btn-xs " onclick="confirmation(event)"><i class="fa fa-trash-o"></i></a>
                         </div>
                     </td>
                 </tr>

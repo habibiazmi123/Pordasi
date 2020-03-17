@@ -17,7 +17,7 @@ echo form_open_multipart(base_url('admin/hasil_pertandingan/tambah'));
         <div class="form-group form-group-lg">
             <label>Peringkat</label>
             <select name="no_urut" class="form-control">
-                <?php for ($i = 1; $i <= 20; $i++) { ?>
+                <?php for ($i = 1; $i <= 3; $i++) { ?>
                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php } ?>
             </select>
@@ -27,7 +27,11 @@ echo form_open_multipart(base_url('admin/hasil_pertandingan/tambah'));
     <div class="col-md-4">
         <div class="form-group form-group-lg">
             <label>Cabang</label>
-            <input type="text" name="nama_cabang" class="form-control" placeholder="Nama Cabang" value="<?php echo set_value('nama_cabang') ?>">
+            <select name="nama_cabang" class="form-control">
+                <?php foreach ($cabang as $item) { ?>
+                    <option value="<?php echo $item->id; ?>"><?php echo $item->nama; ?></option>
+                <?php } ?>
+            </select>
         </div>
     </div>
 </div>
